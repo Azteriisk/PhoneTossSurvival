@@ -28,7 +28,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp">
+                android:layout_marginBottom="14dp">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -39,8 +39,8 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="28dp"
-                        android:layout_height="28dp"
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
                         android:contentDescription="@string/desc_logo"
                         android:src="@drawable/ic_broken_phone" />
 
@@ -51,7 +51,7 @@
                         android:fontFamily="sans-serif-black"
                         android:text="@string/leaderboard_title"
                         android:textColor="@color/primary"
-                        android:textSize="16sp"
+                        android:textSize="15sp"
                         android:textStyle="bold" />
                 </LinearLayout>
 
@@ -68,39 +68,72 @@
                     android:visibility="gone" />
             </RelativeLayout>
 
-            <!-- GLOBAL PLAY GAMES LEADERBOARD BUTTON -->
+            <!-- GLOBAL PLAY GAMES LEADERBOARD BUTTON (HIGH CONTRAST) -->
             <Button
                 android:id="@+id/btnPlayGamesLeaderboard"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:layout_marginBottom="12dp"
-                android:fontFamily="sans-serif-bold"
+                android:layout_marginBottom="14dp"
+                android:backgroundTint="@color/primary"
+                android:fontFamily="sans-serif-black"
                 app:cornerRadius="24dp"
-                app:icon="@drawable/ic_broken_phone"
-                app:iconPadding="8dp"
                 android:text="@string/btn_play_games_leaderboard"
-                android:textColor="@color/primary"
-                app:strokeColor="@color/primary"
-                android:textSize="11sp" />
+                android:textColor="@color/white"
+                android:textSize="11sp"
+                android:textStyle="bold" />
 
-            <!-- SCROLLABLE FULL LEADERBOARD CONTENT -->
+            <!-- EMPTY LEADERBOARD STATE -->
+            <LinearLayout
+                android:id="@+id/layoutEmptyState"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="20dp"
+                android:visibility="gone">
+
+                <ImageView
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:contentDescription="@string/desc_logo"
+                    android:src="@drawable/ic_broken_phone" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:fontFamily="sans-serif-black"
+                    android:gravity="center"
+                    android:text="NO SURVIVED THROWS LOGGED"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:fontFamily="sans-serif"
+                    android:gravity="center"
+                    android:text="Arm the accelerometer sensor on the Game tab and toss your phone to set a high score!"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <!-- SCROLLABLE SCORES LIST CONTAINER -->
             <ScrollView
+                android:id="@+id/scrollLeaderboard"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:fillViewport="true"
                 android:scrollbars="vertical">
 
-                <TextView
-                    android:id="@+id/tvLeaderboardList"
+                <LinearLayout
+                    android:id="@+id/layoutScoresContainer"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="monospace"
-                    android:lineSpacingExtra="8dp"
-                    android:text="@string/empty_leaderboard"
-                    android:textColor="@color/text_primary"
-                    android:textSize="14sp" />
+                    android:orientation="vertical" />
 
             </ScrollView>
 

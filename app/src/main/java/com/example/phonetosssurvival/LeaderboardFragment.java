@@ -6,6 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,7 +20,9 @@ import java.util.Locale;
 
 public class LeaderboardFragment extends Fragment {
 
-    private TextView tvLeaderboardList;
+    private LinearLayout layoutScoresContainer;
+    private View layoutEmptyState;
+    private ScrollView scrollLeaderboard;
 
     @Nullable
     @Override
@@ -29,9 +33,11 @@ public class LeaderboardFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        tvLeaderboardList = view.findViewById(R.id.tvLeaderboardList);
-        Button btnClearLeaderboard = view.findViewById(R.id.btnClearLeaderboard);
+        layoutScoresContainer = view.findViewById(R.id.layoutScoresContainer);
+        layoutEmptyState = view.findViewById(R.id.layoutEmptyState);
+        scrollLeaderboard = view.findViewById(R.id.scrollLeaderboard);
 
+        Button btnClearLeaderboard = view.findViewById(R.id.btnClearLeaderboard);
         if (btnClearLeaderboard != null) {
             btnClearLeaderboard.setOnClickListener(v -> {
                 Context ctx = getContext();
@@ -63,26 +69,42 @@ public class LeaderboardFragment extends Fragment {
 
     public void loadLeaderboard() {
         Context ctx = getContext();
-        if (tvLeaderboardList == null || ctx == null) return;
+        if (layoutScoresContainer == null || ctx == null) return;
 
         LeaderboardDatabaseHelper db = LeaderboardDatabaseHelper.getInstance(ctx);
         db.migrateFromSharedPreferences(ctx);
 
         List<ScoreEntry> entries = db.getAllScoresSorted();
+        layoutScoresContainer.removeAllViews();
 
         if (entries.isEmpty()) {
-            tvLeaderboardList.setText("1. No survived throws recorded yet.\nArm sensor & toss phone to log score!");
+            if (layoutEmptyState != null) layoutEmptyState.setVisibility(View.VISIBLE);
+            if (scrollLeaderboard != null) scrollLeaderboard.setVisibility(View.GONE);
             return;
         }
 
-        StringBuilder sb = new StringBuilder();
+        if (layoutEmptyState != null) layoutEmptyState.setVisibility(View.GONE);
+        if (scrollLeaderboard != null) scrollLeaderboard.setVisibility(View.VISIBLE);
+
+        LayoutInflater inflater = LayoutInflater.from(ctx);
         int rank = 1;
         for (ScoreEntry score : entries) {
-            sb.append(String.format(Locale.US, "%d. %s - %.2f m/s² (%.2f Gs)\n   Logged: %s\n\n",
-                    rank, score.getPlayerName(), score.getMagnitude(), score.getGForce(), score.getTimestamp()));
+            View itemView = inflater.inflate(R.layout.item_leaderboard_score, layoutScoresContainer, false);
+
+            TextView tvRank = itemView.findViewById(R.id.tvRank);
+            TextView tvPlayerName = itemView.findViewById(R.id.tvPlayerName);
+            TextView tvTimestamp = itemView.findViewById(R.id.tvTimestamp);
+            TextView tvImpactForce = itemView.findViewById(R.id.tvImpactForce);
+
+            if (tvRank != null) tvRank.setText(String.format(Locale.US, "#%d", rank));
+            if (tvPlayerName != null) tvPlayerName.setText(score.getPlayerName());
+            if (tvTimestamp != null) tvTimestamp.setText(score.getTimestamp());
+            if (tvImpactForce != null) {
+                tvImpactForce.setText(String.format(Locale.US, "%.1f m/s² (%.1f Gs)", score.getMagnitude(), score.getGForce()));
+            }
+
+            layoutScoresContainer.addView(itemView);
             rank++;
         }
-
-        tvLeaderboardList.setText(sb.toString().trim());
     }
 }
