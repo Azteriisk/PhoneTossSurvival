@@ -26,4 +26,8 @@
     <string name="btn_clear_scores">CLEAR SCORES</string>
     <string name="desc_logo">Broken Phone Logo</string>
     <string name="btn_play_games_leaderboard">VIEW GLOBAL PLAY GAMES LEADERBOARD</string>
+
+    <!-- Google Play Games Services V2 Configuration IDs -->
+    <string name="game_services_project_id">123456789012</string>
+    <string name="play_games_leaderboard_id">CgkI_phone_toss_global_leaderboard</string>
 </resources>
