@@ -25,4 +25,5 @@
     <string name="btn_add_fake_score">+ FAKE HIGH SCORE</string>
     <string name="btn_clear_scores">CLEAR SCORES</string>
     <string name="desc_logo">Broken Phone Logo</string>
+    <string name="btn_play_games_leaderboard">VIEW GLOBAL PLAY GAMES LEADERBOARD</string>
 </resources>

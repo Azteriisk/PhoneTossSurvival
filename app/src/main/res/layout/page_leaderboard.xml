@@ -68,6 +68,22 @@
                     android:visibility="gone" />
             </RelativeLayout>
 
+            <!-- GLOBAL PLAY GAMES LEADERBOARD BUTTON -->
+            <Button
+                android:id="@+id/btnPlayGamesLeaderboard"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginBottom="12dp"
+                android:fontFamily="sans-serif-bold"
+                app:cornerRadius="24dp"
+                app:icon="@drawable/ic_broken_phone"
+                app:iconPadding="8dp"
+                android:text="@string/btn_play_games_leaderboard"
+                android:textColor="@color/primary"
+                app:strokeColor="@color/primary"
+                android:textSize="11sp" />
+
             <!-- SCROLLABLE FULL LEADERBOARD CONTENT -->
             <ScrollView
                 android:layout_width="match_parent"

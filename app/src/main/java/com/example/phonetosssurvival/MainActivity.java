@@ -22,6 +22,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Initialize Google Play Games Services V2 Global Leaderboard SDK
+        PlayGamesLeaderboardManager.initialize(this);
+        PlayGamesLeaderboardManager.checkAuthentication(this, null);
+
         setupSwipeNavigation();
     }
 

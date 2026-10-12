@@ -4,17 +4,18 @@
 
 ## Overview
 
-Phone Toss Survival is an Android application engineered to demonstrate real-time hardware telemetry processing using the Android `SensorManager` framework (`Sensor.TYPE_ACCELEROMETER`). The application measures 3-axis acceleration forces ($m/s^2$) during aerial phone tosses or drops, calculates impact G-forces, executes a 60-second survival verification protocol, and logs high scores into an on-device SQLite database.
+Phone Toss Survival is an Android application engineered to demonstrate real-time hardware telemetry processing using the Android `SensorManager` framework (`Sensor.TYPE_ACCELEROMETER`). The application measures 3-axis acceleration forces ($m/s^2$) during aerial phone tosses or drops, calculates impact G-forces, executes a 60-second survival verification protocol, and logs high scores into an on-device SQLite database as well as Google Play Games Services V2 Global Leaderboards.
 
 ---
 
 ## Technical Architecture
 
-The application adopts a modular, component-based Android architecture utilizing Jetpack libraries and native hardware APIs.
+The application adopts a modular, component-based Android architecture utilizing Jetpack libraries, Google Play Services, and native hardware APIs.
 
 - **Activity Host:** `MainActivity` hosts a `ViewPager2` container managed by a custom `FragmentStateAdapter` to deliver an endless carousel swipe interface between the Game and Leaderboard views.
 - **Hardware Telemetry:** `GameFragment` implements `SensorEventListener` to process accelerometer updates from `SensorManager`.
-- **Database Persistence:** `LeaderboardDatabaseHelper` provides a native SQLite database (`phonetoss_leaderboard.db`) to store, index, and query player high scores.
+- **Global Leaderboard Integration:** `PlayGamesLeaderboardManager` integrates Google Play Games Services V2 SDK (`com.google.android.gms:play-services-games-v2:22.1.0`) for global high score tracking and authentication.
+- **Database Persistence:** `LeaderboardDatabaseHelper` provides a native SQLite database (`phonetoss_leaderboard.db`) to store, index, and query player high scores locally.
 - **Navigation:** Page transitions use a 3-dot indicator bar with real-time scaling and glow pulse feedback.
 
 ---
@@ -35,6 +36,7 @@ Where $9.80665 \text{ m/s}^2$ represents standard Earth gravity ($1.0 \text{ G}$
 
 ## Key Features
 
+- **Google Play Games Services V2 Integration:** Official Google Play Games SDK integration for global score submission and overlay leaderboard UI.
 - **Real-Time Accelerometer Telemetry:** Live display of $X, Y, Z$ acceleration axes in meters per second squared.
 - **Adjustable Sensitivity:** Interactive slider to set the throw trigger threshold ($15.0 \text{ m/s}^2$ default).
 - **Arming Protocol:** Safety toggle button to arm the sensor prior to throwing.
@@ -88,7 +90,7 @@ Execute the following command in the project root to compile the debug build:
    adb emu sensor set acceleration 0:25:0
    ```
 2. **Survival Timer Verification:** Verify that detecting an impact forces a 60-second countdown timer. Confirming survival prompts for player name entry; expiring without response forfeits the run.
-3. **Database Verification:** Verify that logged high scores appear in sorted order on the Leaderboard tab and persist across application restarts.
+3. **Database & Global Leaderboard Verification:** Verify that logged high scores appear in sorted order on the Leaderboard tab and submit to Google Play Games Services V2 API.
 
 ---
 

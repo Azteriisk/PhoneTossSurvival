@@ -459,5 +459,9 @@ public class GameFragment extends Fragment implements SensorEventListener {
         String timestamp = new SimpleDateFormat("MMM dd, HH:mm", Locale.US).format(new Date());
         LeaderboardDatabaseHelper db = LeaderboardDatabaseHelper.getInstance(ctx);
         db.addScore(playerName, magnitude, gForce, timestamp);
+
+        if (getActivity() != null) {
+            PlayGamesLeaderboardManager.submitScoreToGlobalLeaderboard(getActivity(), magnitude);
+        }
     }
 }

@@ -43,6 +43,15 @@ public class LeaderboardFragment extends Fragment {
             });
         }
 
+        Button btnPlayGames = view.findViewById(R.id.btnPlayGamesLeaderboard);
+        if (btnPlayGames != null) {
+            btnPlayGames.setOnClickListener(v -> {
+                if (getActivity() != null) {
+                    PlayGamesLeaderboardManager.showGlobalLeaderboardUI(getActivity());
+                }
+            });
+        }
+
         loadLeaderboard();
     }
 

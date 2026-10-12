@@ -37,6 +37,7 @@ android {
 dependencies {
     implementation(libs.appcompat)
     implementation(libs.material)
+    implementation("com.google.android.gms:play-services-games-v2:22.1.0")
     testImplementation(libs.junit)
     androidTestImplementation(libs.espresso.core)
     androidTestImplementation(libs.ext.junit)
