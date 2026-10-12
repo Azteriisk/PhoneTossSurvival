@@ -4,12 +4,6 @@
   <img src="app/src/main/res/drawable/ic_death_metal_logo.png" width="250" alt="Phone Toss Survival Artwork" />
 </div>
 
-## Short Description
-
-An intense, telemetry-driven Android game that measures aerial phone toss impact forces in meters per second squared and Gs using the native Accelerometer SensorManager API. Features 60-second survival verification, persistent SQLite score tracking, Google Play Games Services V2 global leaderboards, and a modern 3-dot carousel swipe interface.
-
----
-
 ## Overview
 
 Phone Toss Survival is an Android application built for real-time motion telemetry. It uses the native Android `SensorManager` framework (`Sensor.TYPE_ACCELEROMETER`).
