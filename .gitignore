@@ -1,0 +1,22 @@
+*.iml
+.gradle
+/local.properties
+local.properties
+
+# Build outputs
+/build
+/app/build
+/captures
+.externalNativeBuild
+.cxx
+
+# IDE & OS files
+.idea/
+.DS_Store
+Thumbs.db
+
+# Submission ZIPs & Keystores
+*.zip
+*.keystore
+*.jks
+*.hprof

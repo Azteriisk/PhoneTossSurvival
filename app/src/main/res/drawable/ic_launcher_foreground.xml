@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Slim Smartphone Crimson Shell Chassis (26w x 50h, Slim Bevels) -->
+    <path
+        android:fillColor="#880000"
+        android:pathData="M41,29 h26 a5,5 0 0,1 5,5 v40 a5,5 0 0,1 -5,5 h-26 a5,5 0 0,1 -5,-5 v-40 a5,5 0 0,1 5,-5 Z" />
+
+    <!-- Inner Dark Glass Display Screen (Thin Bevel Edge) -->
+    <path
+        android:fillColor="#0B0809"
+        android:pathData="M43,33 h22 v42 h-22 Z" />
+
+    <!-- Major Deep Crimson Impact Shatter Fracture Lines -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#880000"
+        android:strokeWidth="1.6"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:pathData="M44,40 L51,46 L47,51 L57,55 L51,63 M55,44 L61,38 M48,47 L58,50 L61,54 M55,35 L51,40 L57,43" />
+
+    <!-- Sharp White Shattered Glass Highlight Cracks -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="0.9"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:pathData="M45,39 L50,44 L46,49 L56,53 M56,53 L61,46 M50,49 L57,51 M54,36 L50,41 L56,44" />
+
+    <!-- Top Speaker / Camera Sensor Dot -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M54,31 m-0.8,0 a0.8,0.8 0 1,0 1.6,0 a0.8,0.8 0 1,0 -1.6,0" />
+
+    <!-- Bottom Home Indicator Bar -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#880000"
+        android:strokeWidth="1.2"
+        android:strokeLineCap="round"
+        android:pathData="M50,76 h8" />
+
+</vector>

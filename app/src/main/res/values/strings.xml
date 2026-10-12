@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Phone Toss Survival</string>
+    <string name="game_title">PHONE TOSS SURVIVAL</string>
+    <string name="game_subtitle">HOW HARD CAN YOU THROW YOUR PHONE AND SURVIVE?</string>
+    <string name="status_standby">STATUS: STANDBY</string>
+    <string name="initial_peak_force">0.0 m/s²</string>
+    <string name="initial_commentary">Arm the sensor and toss or drop your phone!</string>
+    <string name="initial_live_accel">Live Accelerometer: X:0.0 Y:9.8 Z:0.0 m/s²</string>
+    <string name="throw_detected_title">THROW DETECTED! SURVIVAL CHECK</string>
+    <string name="initial_impact_summary">Impact Force: 28.50 m/s² (2.91 Gs)</string>
+    <string name="initial_countdown">TIME REMAINING TO CONFIRM: 60s</string>
+    <string name="survival_prompt_question">Did your phone survive this throw?</string>
+    <string name="btn_yes_survived">YES, SURVIVED!</string>
+    <string name="btn_no_broken">NO, DESTROYED</string>
+    <string name="survival_note">If no response in 60 seconds, run is forfeited.</string>
+    <string name="sensitivity_label">Throw Trigger Sensitivity: 15.0 m/s²</string>
+    <string name="btn_arm_sensor">ARM FOR TOSS</string>
+    <string name="btn_disarm_sensor">DISARM SENSOR</string>
+    <string name="btn_sim_toss">TEST THROW</string>
+    <string name="leaderboard_title">Survived Throws Leaderboard</string>
+    <string name="btn_reset">RESET</string>
+    <string name="empty_leaderboard">1. No survived throws recorded yet.\nArm sensor &amp; toss phone to log score!</string>
+    <string name="debug_card_title">DEVELOPER DEBUG &amp; TESTING CONTROLS</string>
+    <string name="debug_mode_desc">Debug Mode Enabled: Test Throw button active &amp; Leaderboard editing enabled.</string>
+    <string name="btn_add_fake_score">+ FAKE HIGH SCORE</string>
+    <string name="btn_clear_scores">CLEAR SCORES</string>
+    <string name="desc_logo">Broken Phone Logo</string>
+</resources>

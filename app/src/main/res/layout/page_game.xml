@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_dark"
+    android:orientation="vertical"
+    android:paddingHorizontal="16dp"
+    android:paddingTop="8dp"
+    android:paddingBottom="12dp">
+
+    <!-- HERO HEADER CARD WITH TRANSPARENT DEATH METAL LOGO IMAGE -->
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginBottom="12dp"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="6dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_hero_gradient"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="12dp">
+
+            <!-- User Death Metal Transparent Artwork Image (Enlarged) -->
+            <ImageView
+                android:id="@+id/ivHeaderLogo"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/game_title"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_death_metal_logo" />
+
+            <!-- Hidden TextView Title for Accessibility / 5-Tap Secret Gate -->
+            <TextView
+                android:id="@+id/tvGameTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/game_title"
+                android:text="@string/game_title"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/tvGameSubtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-condensed-bold"
+                android:letterSpacing="0.04"
+                android:text="@string/game_subtitle"
+                android:textColor="@color/text_secondary"
+                android:textSize="10sp" />
+
+            <!-- Rounded Status Badge -->
+            <TextView
+                android:id="@+id/tvStateBadge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/bg_status_badge"
+                android:fontFamily="sans-serif-black"
+                android:paddingHorizontal="14dp"
+                android:paddingVertical="4dp"
+                android:text="@string/status_standby"
+                android:textColor="@color/white"
+                android:textSize="11sp"
+                android:textStyle="bold" />
+
+            <!-- Accelerometer Peak Force Display (Refined 28sp size) -->
+            <TextView
+                android:id="@+id/tvPeakForce"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="sans-serif-black"
+                android:text="@string/initial_peak_force"
+                android:textColor="@color/primary"
+                android:textSize="28sp"
+                android:textStyle="bold" />
+
+            <!-- Commentary -->
+            <TextView
+                android:id="@+id/tvCommentary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="center"
+                android:text="@string/initial_commentary"
+                android:textColor="@color/text_primary"
+                android:textSize="12sp"
+                android:textStyle="italic" />
+
+            <TextView
+                android:id="@+id/tvLiveAccel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:fontFamily="monospace"
+                android:text="@string/initial_live_accel"
+                android:textColor="@color/text_secondary"
+                android:textSize="10sp" />
+
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- SURVIVAL VERIFICATION PANEL (Active post-impact) -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardSurvivalPrompt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:visibility="gone"
+        app:cardBackgroundColor="#160809"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="8dp"
+        app:strokeColor="@color/primary"
+        app:strokeWidth="2dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="14dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-black"
+                android:text="@string/throw_detected_title"
+                android:textColor="@color/primary"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvImpactSummary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:fontFamily="sans-serif-bold"
+                android:text="@string/initial_impact_summary"
+                android:textColor="@color/text_primary"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvCountdown"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@color/primary"
+                android:fontFamily="sans-serif-black"
+                android:gravity="center"
+                android:padding="8dp"
+                android:text="@string/initial_countdown"
+                android:textColor="@color/white"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="sans-serif-bold"
+                android:gravity="center"
+                android:text="@string/survival_prompt_question"
+                android:textColor="@color/text_primary"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                style="?android:attr/buttonBarStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnSurvived"
+                    style="?android:attr/buttonBarButtonStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/status_green"
+                    android:fontFamily="sans-serif-black"
+                    app:cornerRadius="24dp"
+                    app:icon="@drawable/ic_shield_check"
+                    app:iconPadding="4dp"
+                    app:iconTint="@color/black"
+                    android:text="@string/btn_yes_survived"
+                    android:textColor="@color/black"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/btnDestroyed"
+                    style="?android:attr/buttonBarButtonStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/primary"
+                    android:fontFamily="sans-serif-black"
+                    app:cornerRadius="24dp"
+                    app:icon="@drawable/ic_skull_broken"
+                    app:iconPadding="4dp"
+                    app:iconTint="@color/white"
+                    android:text="@string/btn_no_broken"
+                    android:textColor="@color/white"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- GAME CONTROLS CARD -->
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="4dp"
+        app:cardBackgroundColor="@color/card_background"
+        app:strokeColor="#240D0F"
+        app:strokeWidth="1dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="14dp">
+
+            <TextView
+                android:id="@+id/tvThresholdLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-bold"
+                android:text="@string/sensitivity_label"
+                android:textColor="@color/text_primary"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <SeekBar
+                android:id="@+id/sbThreshold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:max="40"
+                android:progress="15"
+                android:thumbTint="@color/primary"
+                android:progressTint="@color/primary" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnArmSensor"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/primary"
+                    android:fontFamily="sans-serif-black"
+                    app:cornerRadius="24dp"
+                    android:text="@string/btn_arm_sensor"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/btnSimToss"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:fontFamily="sans-serif-black"
+                    app:cornerRadius="24dp"
+                    android:text="@string/btn_sim_toss"
+                    android:textColor="@color/primary"
+                    android:visibility="gone"
+                    app:strokeColor="@color/primary"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- DEBUG & ADMIN CARD (Bottom - Toggleable) -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardDebugControls"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="4dp"
+        app:cardBackgroundColor="#140E0A"
+        app:strokeColor="@color/status_orange"
+        app:strokeWidth="1dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="12dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:fontFamily="sans-serif-black"
+                    android:text="@string/debug_card_title"
+                    android:textColor="@color/status_orange"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
+
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/swDebugMode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    app:useMaterialThemeColors="true" />
+            </RelativeLayout>
+
+            <!-- Expanded Debug Options -->
+            <LinearLayout
+                android:id="@+id/layoutDebugOptions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btnAddFakeScore"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        android:layout_width="0dp"
+                        android:layout_height="42dp"
+                        android:layout_weight="1"
+                        android:fontFamily="sans-serif-bold"
+                        app:cornerRadius="21dp"
+                        android:text="@string/btn_add_fake_score"
+                        android:textColor="@color/status_orange"
+                        app:strokeColor="@color/status_orange"
+                        android:textSize="10sp" />
+
+                    <Button
+                        android:id="@+id/btnResetLeaderboardDebug"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        android:layout_width="0dp"
+                        android:layout_height="42dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_weight="1"
+                        android:fontFamily="sans-serif-bold"
+                        app:cornerRadius="21dp"
+                        android:text="@string/btn_clear_scores"
+                        android:textColor="@color/primary"
+                        app:strokeColor="@color/primary"
+                        android:textSize="10sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+</LinearLayout>

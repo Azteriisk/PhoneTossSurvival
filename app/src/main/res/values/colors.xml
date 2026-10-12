@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Dark Mode & Phone-Matched Rich Crimson Palette -->
+    <color name="primary">#880000</color>
+    <color name="primary_dark">#540000</color>
+    <color name="accent">#8A0000</color>
+
+    <color name="card_background">#130E0F</color>
+    <color name="background_dark">#0B0809</color>
+
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#90A4AE</color>
+
+    <color name="status_green">#00E676</color>
+    <color name="status_red">#880000</color>
+    <color name="status_orange">#FF8F00</color>
+
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="purple_200">#880000</color>
+    <color name="purple_500">#880000</color>
+    <color name="purple_700">#540000</color>
+    <color name="teal_200">#8A0000</color>
+    <color name="teal_700">#880000</color>
+</resources>
