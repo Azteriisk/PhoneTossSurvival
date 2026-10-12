@@ -1,12 +1,14 @@
 # Phone Toss Survival Challenge
 
-<p align="center">
+<div align="center">
   <img src="app/src/main/res/drawable/ic_death_metal_logo.png" width="250" alt="Phone Toss Survival Artwork" />
-</p>
+</div>
 
 ## Overview
 
-Phone Toss Survival is an Android application engineered to demonstrate real-time hardware telemetry processing using the Android `SensorManager` framework (`Sensor.TYPE_ACCELEROMETER`). The application measures 3-axis acceleration forces ($m/s^2$) during aerial phone tosses or drops, calculates impact G-forces, executes a 60-second survival verification protocol, and logs high scores into an on-device SQLite database as well as Google Play Games Services V2 Global Leaderboards.
+Phone Toss Survival is an Android application built for real-time motion telemetry. It uses the native Android `SensorManager` framework (`Sensor.TYPE_ACCELEROMETER`).
+
+The app measures 3-axis acceleration forces during phone tosses or drops. It calculates peak impact G-forces and triggers a 60-second survival verification protocol. High scores are logged to a native SQLite database and Google Play Games Services V2.
 
 ---
 
@@ -14,10 +16,10 @@ Phone Toss Survival is an Android application engineered to demonstrate real-tim
 
 The application adopts a modular, component-based Android architecture utilizing Jetpack libraries, Google Play Services, and native hardware APIs.
 
-- **Activity Host:** `MainActivity` hosts a `ViewPager2` container managed by a custom `FragmentStateAdapter` to deliver an endless carousel swipe interface between the Game and Leaderboard views.
+- **Activity Host:** `MainActivity` hosts a `ViewPager2` container. A custom `FragmentStateAdapter` delivers an endless carousel swipe interface between views.
 - **Hardware Telemetry:** `GameFragment` implements `SensorEventListener` to process accelerometer updates from `SensorManager`.
-- **Global Leaderboard Integration:** `PlayGamesLeaderboardManager` integrates Google Play Games Services V2 SDK (`com.google.android.gms:play-services-games-v2:22.1.0`) for global high score tracking and authentication.
-- **Database Persistence:** `LeaderboardDatabaseHelper` provides a native SQLite database (`phonetoss_leaderboard.db`) to store, index, and query player high scores locally.
+- **Global Leaderboard Integration:** `PlayGamesLeaderboardManager` integrates Google Play Games Services V2 SDK (`com.google.android.gms:play-services-games-v2:22.1.0`) for global score tracking.
+- **Database Persistence:** `LeaderboardDatabaseHelper` provides a native SQLite database (`phonetoss_leaderboard.db`) to store and query scores locally.
 - **Navigation:** Page transitions use a 3-dot indicator bar with real-time scaling and glow pulse feedback.
 
 ---
