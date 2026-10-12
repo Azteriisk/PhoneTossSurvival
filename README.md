@@ -1,6 +1,8 @@
 # Phone Toss Survival Challenge
 
-![Phone Toss Survival Artwork](app/src/main/res/drawable/ic_death_metal_logo.png)
+<p align="center">
+  <img src="app/src/main/res/drawable/ic_death_metal_logo.png" width="250" alt="Phone Toss Survival Artwork" />
+</p>
 
 ## Overview
 
